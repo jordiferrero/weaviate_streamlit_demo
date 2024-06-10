@@ -247,7 +247,9 @@ with st.sidebar:
     st.info(mode_descriptions[mode][0])
 
 st.divider()
-st.markdown("  **Search for your next job.** Start by typing a query in the input below or select an example query:")
+st.markdown(
+    "  **Search for your next job.** Start by typing a query in the input below or select an example query:"
+)
 st.markdown("")
 
 # Initialize chat history
@@ -315,10 +317,10 @@ if prompt := (st.chat_input("What cards are you looking for?") or button_pressed
                     response += full_response + " "
 
                 with st.container(border=True):
-                    st.markdown(f"**{index+1}. {row["title"]}**")
+                    st.markdown(f"**{index+1}. {row['title']}**")
                     col1, col2, col3 = st.columns(3)
-                    col1.caption(f"🏦 {row["company_name"]}")
-                    col2.caption(f"📍 {row["location"]}")
+                    col1.caption(f"🏦 {row['company_name']}")
+                    col2.caption(f"📍 {row['location']}")
                     col3.caption(f"ID: {row['job_id']}")
                     with st.expander(f"📄 Description", expanded=False):
                         st.caption(row["description"])
