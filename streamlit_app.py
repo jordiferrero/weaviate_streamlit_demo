@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Constants
-ENV_VARS = ["WEAVIATE_URL", "WCD_DEMO_RO_KEY", "OPENAI_API_KEY"]
+ENV_VARS = ["WEAVIATE_URL", "WCD_DEMO_RO_KEY"]
 NUM_IMAGES_PER_ROW = 3
 
 
@@ -35,10 +35,9 @@ def get_env_vars(env_vars: list) -> dict:
 env_vars = get_env_vars(ENV_VARS)
 url = env_vars["WEAVIATE_URL"]
 api_key = env_vars["WCD_DEMO_RO_KEY"]
-OPENAI_API_KEY = env_vars["OPENAI_API_KEY"]
 
 # Check keys
-if url == "" or api_key == "" or OPENAI_API_KEY == "":
+if url == "" or api_key == "":
     st.error(f"Environment variables not set", icon="🚨")
     sys.exit("Environment variables not set")
 
@@ -56,7 +55,6 @@ conn = st.connection(
     type=WeaviateConnection,
     url=os.getenv("WEAVIATE_URL"),
     api_key=os.getenv("WCD_DEMO_RO_KEY"),
-    additional_headers={"X-OpenAI-Api-Key": OPENAI_API_KEY},
 )
 
 with st.sidebar:
