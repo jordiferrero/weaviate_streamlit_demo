@@ -1,5 +1,5 @@
-# Weaviate-powered job search engine 
-## Vector search in streamlit
+# Weaviate-powered job search engine (vector search in streamlit)
+
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://linkedin-weaviate.streamlit.app/)
 
